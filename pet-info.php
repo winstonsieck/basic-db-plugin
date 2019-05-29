@@ -9,6 +9,9 @@ Author URI: https://my.thinkeracademy.com
 global $pi_db_version;
 $pi_db_version = '1.0';
 
+/*
+ * Creates an empty table in the database called wp_pet with the given columns.
+ */
 function pi_install() {
     global $wpdb;
     global $pi_db_version;
@@ -32,6 +35,9 @@ function pi_install() {
     add_option( 'pi_db_version', $pi_db_version );
 }
 
+/*
+ * Puts the given data in the previously created table.
+ */
 function pi_install_data() {
     global $wpdb;
     $names = array('Unicorn', 'Pegasus', 'Pony','Asian dragon','Medieval dragon','Lion','Gryphon');
@@ -55,5 +61,8 @@ function pi_install_data() {
     }
 }
 
+/*
+ * Action hooks: calls both functions on plugin activation.
+ */
 register_activation_hook(__FILE__,'pi_install');
 register_activation_hook(__FILE__,'pi_install_data');
