@@ -15,8 +15,8 @@ add_action('genesis_before_content','pi_save_data');
  * Puts the given data in the previously created table.
  */
 function pi_save_data() {
-    $page_id = 30;
-    if(is_page($page_id)) {
+    $page_slug = "pet-store-data";
+    if(is_page($page_slug)) {
         global $wpdb;
         $names = array('Unicorn', 'Pegasus', 'Pony','Asian dragon','Medieval dragon','Lion','Gryphon');
         $types = array('Horse','Horse','Horse','Dragon','Dragon','Cat','Cat');
